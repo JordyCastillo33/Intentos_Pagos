@@ -87,6 +87,7 @@ use Views\Renderer;
                     $this->_viewData["estado"]
                 );
                 
+                
                 if ($result) {
                     \Utilities\Site::redirectToWithMsg(
                         'index.php?page=mnt.intentospagos.intentospagos',
@@ -166,7 +167,10 @@ use Views\Renderer;
             }
 
             $this->preparaInformacion();
-
+            if($this->_viewData["mode"] == "INS")
+            {
+                $this->_viewData["isInsert"] = true;
+            }
             Renderer::render('mnt/IntentoPago', $this->_viewData);
         }
     }
