@@ -17,6 +17,10 @@ class Validators {
     static public function IsValidPassword($valor){
         return preg_match("/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,32}$/", $valor) && true;
     }
+    static public function isMatch($valor,$regex)
+    {
+        return preg_match($regex,$valor) && true;
+    }
 
     private function __construct()
     {
